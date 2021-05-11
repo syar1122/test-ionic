@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">sorena-tile</string>
+    <string name="title_activity_main">sorena-tile</string>
+    <string name="package_name">syar.ionic.tile</string>
+    <string name="custom_url_scheme">syar.ionic.tile</string>
+</resources>

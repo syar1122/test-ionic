@@ -1,0 +1,99 @@
+<form #f="ngForm" (ngSubmit)="onAdd(f.value)">
+
+  <div class="card text-white bg-primary">
+    <img *ngIf="tile.imgUrl" class="card-img-top" [src]="tile.imgUrl" alt="">
+    <div class="card-body">
+      <a name="imgGet" id="ImgGet" class="btn btn-primary" (click)="getImg()" role="button">
+        <span *ngIf="!tile.imgUrl">Choose Image</span>
+        <span *ngIf="tile.imgUrl">Change Image</span>
+      </a>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input #name="ngModel" [(ngModel)]="tile.name" name="name" id="name" type="text" class="form-control" required>
+    <div *ngIf="name.touched && name.invalid" class="alert alert-danger">name is required</div>
+  </div>
+
+  <div class="form-group">
+    <label for="company">Company</label>
+    <input #company="ngModel" [(ngModel)]="tile.Company" name="company" id="company" type="text" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="store">Store</label>
+    <select #store="ngModel" [(ngModel)]="tile.category" name="store" id="store" type="text" class="form-control">
+      <option value=""></option>
+      <option *ngFor="let store of (stores$ | async)" [value]="store.payload.key">
+        {{store.payload.val().name}}
+      </option>
+    </select>
+  </div>
+
+  <div class="row">
+
+
+    <div class="form-group col">
+      <label for="size">Size</label>
+      <input #size="ngModel" [(ngModel)]="tile.size" name="size" id="size" type="text" class="form-control">
+    </div>
+
+    <div class="form-group col">
+      <label for="height">Height</label>
+      <input #height="ngModel" [(ngModel)]="tile.height" name="height" id="height" type="number" class="form-control"
+        min="1" max="99">
+    </div>
+
+
+    <div class="form-group col">
+      <label for="mpk">M p K</label>
+      <input #mpk="ngModel" [(ngModel)]="tile.mpk" name="mpk" id="mpk" type="number" class="form-control">
+    </div>
+
+  </div>
+
+
+  <!-- <div class="form-group">
+    <label for="price">Price</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">$</span>
+      </div>
+      <input #price="ngModel" [(ngModel)]="tile.price" name="price" id="price" type="number" class="form-control"
+        required [min]="0">
+
+    </div>
+    <div *ngIf="price.touched && price.invalid" class="alert alert-danger">
+      <div *ngIf="price.errors.required">
+        Price is require
+      </div>
+      <div *ngIf="price.errors.min">
+        Price must be positive
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="size">ImageUrl</label>
+    <input #sizeUrl="ngModel" [(ngModel)]="tile.imageUrl" name="size" id="size" type="text" class="form-control" required
+      url>
+    <div *ngIf="sizeUrl.touched && sizeUrl.invalid" class="alert alert-danger">
+      <div *ngIf="sizeUrl.errors.required">
+        Image url is require
+      </div>
+      <div *ngIf="sizeUrl.errors.url">
+        must enter valid url
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="!id" class="btn btn-primary">Save</button>
+  <button *ngIf="id" class="btn btn-secondary">Update</button>
+
+  <button *ngIf="id" type="button" (click)="delete()" class="btn btn-danger">Delete</button> -->
+</form>

@@ -1,0 +1,7 @@
+{
+  "name": "sorena-tile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
